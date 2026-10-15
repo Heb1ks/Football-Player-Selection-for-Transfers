@@ -10,7 +10,7 @@ REPO='Heb1ks/Football-Player-Selection-for-Transfers'
 GIT=shutil.which('git') or 'git'
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--check',action='store_true');parser.add_argument('--open-pr',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--check',action='store_true');parser.add_argument('--open-pr',action='store_true');parser.add_argument('--link-evidence',action='store_true');parser.add_argument('--status',action='store_true');args=parser.parse_args()
     env=dict(os.environ,GIT_TERMINAL_PROMPT='0',GCM_INTERACTIVE='Never')
     found=subprocess.run([GIT,'credential','fill'],input='protocol=https\nhost=github.com\nusername=Heb1ks\n\n',text=True,capture_output=True,env=env)
     credential=dict(line.split('=',1) for line in found.stdout.splitlines() if '=' in line)
@@ -23,6 +23,20 @@ def main():
         repo=request('/repos/'+REPO)
         print(json.dumps({'repository':repo['html_url'],'can_push':repo.get('permissions',{}).get('push',False),'issues_enabled':repo['has_issues']}))
         if args.check:return
+        if args.status:
+            runs=request('/repos/'+REPO+'/actions/runs?branch=codex%2FDIP-01-predefense-mvp&per_page=5')['workflow_runs']
+            result=[{'name':r['name'],'status':r['status'],'conclusion':r['conclusion'],'url':r['html_url'],'commit':r['head_sha']} for r in runs]
+            (ROOT/'output/ci-status.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
+            print(json.dumps(result));return
+        if args.link_evidence:
+            pr=json.loads((ROOT/'output/pull-request.json').read_text())['url']
+            links=json.loads((ROOT/'docs/github-issues.json').read_text())
+            for task_id in ['DIP-01','DIP-02','DIP-03','DIP-04','DIP-05']:
+                number=links[task_id]['number'];issue=request('/repos/'+REPO+'/issues/'+str(number))
+                if pr not in (issue.get('body') or ''):
+                    body=(issue.get('body') or '')+'\n\n## Implementation and review\n'+pr+'\n\nEvidence is available on branch codex/DIP-01-predefense-mvp. This issue remains open pending team review.\n'
+                    request('/repos/'+REPO+'/issues/'+str(number),'PATCH',{'body':body})
+            print('Linked the actual draft PR to five implementation/documentation issues; all remain open.');return
         if args.open_pr:
             branch='codex/DIP-01-predefense-mvp'
             existing=request('/repos/'+REPO+'/pulls?state=open&head=Heb1ks:'+branch)
