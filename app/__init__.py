@@ -1,0 +1,1 @@
+"""TransferLens local diploma prototype."""

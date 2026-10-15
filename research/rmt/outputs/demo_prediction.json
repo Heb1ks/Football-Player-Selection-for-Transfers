@@ -1,0 +1,27 @@
+{
+  "player_id": 132098,
+  "player_name": "Harry Kane",
+  "transfer_date": "2023-08-12",
+  "split": "test",
+  "prediction_ga90": 0.560284016865623,
+  "observed_ga90": 1.3928948294055574,
+  "absolute_error": 0.8326108125399344,
+  "predictor_fields": [
+    "pre_goals90",
+    "pre_assists90",
+    "pre_minutes",
+    "pre_appearances",
+    "pre_yellows90",
+    "pre_reds90",
+    "age",
+    "position_attack",
+    "position_midfield",
+    "share_433",
+    "share_4231",
+    "share_442",
+    "share_three_back",
+    "formation_entropy",
+    "formation_coverage"
+  ],
+  "status": "retrospective demonstration on a real cohort row"
+}

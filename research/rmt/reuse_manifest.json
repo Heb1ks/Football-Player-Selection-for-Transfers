@@ -1,0 +1,102 @@
+{
+  "copied_on": "2026-10-15",
+  "origin": "RMT Assignment 3",
+  "purpose": "Reuse of team research as a diploma prototype foundation; no claim of new data collection or new RMT results.",
+  "files": [
+    {
+      "source": "rmt/practical/run_pipeline.py",
+      "destination": "research/rmt/run_pipeline.py",
+      "sha256": "a1f6067b6a82ba541129436ea268d5ae522787cfc039afa4065588920408d1cb"
+    },
+    {
+      "source": "rmt/practical/demonstrate_transfer.py",
+      "destination": "research/rmt/demonstrate_transfer.py",
+      "sha256": "8e306f22470d2c7be2224743c62c2aefb1a9a79348c9e7feb7d62825e24f87a0"
+    },
+    {
+      "source": "rmt/practical/requirements.txt",
+      "destination": "research/rmt/requirements.txt",
+      "sha256": "8d98e6b54daf24152d8c50f2ca6c15832de9df5cbb4272ea2f846186140b99da"
+    },
+    {
+      "source": "rmt/practical/README.md",
+      "destination": "research/rmt/README.md",
+      "sha256": "c7d7ccfbd10c2600e0006aa7fe6530c48ff10e9eb23747c5ab83f00a744033b1"
+    },
+    {
+      "source": "rmt/practical/data/appearances.csv.gz",
+      "destination": "research/rmt/data/appearances.csv.gz",
+      "sha256": "e096c2b158fc3d52c4550526c4d4850dd62f31007652f4bcae112eadb1646802"
+    },
+    {
+      "source": "rmt/practical/data/games.csv.gz",
+      "destination": "research/rmt/data/games.csv.gz",
+      "sha256": "142561989017d379bcf9e72bad0b87e0996bae0e7b710ebb3def9255f464c741"
+    },
+    {
+      "source": "rmt/practical/data/players.csv.gz",
+      "destination": "research/rmt/data/players.csv.gz",
+      "sha256": "d22e407981d5b51a79bf8ff59835729f3526f7dc3495a6d8ed2f852ed2e86403"
+    },
+    {
+      "source": "rmt/practical/data/transfers.csv.gz",
+      "destination": "research/rmt/data/transfers.csv.gz",
+      "sha256": "90326983daf7e6ac7aabdfe62b90936d9bf1dd2171e53dec75c3751eb1620a83"
+    },
+    {
+      "source": "rmt/practical/outputs/demo_prediction.html",
+      "destination": "research/rmt/outputs/demo_prediction.html",
+      "sha256": "783c108ff13435702b1b997effedfb350851f1068ee2629996713e8171415ead"
+    },
+    {
+      "source": "rmt/practical/outputs/demo_prediction.json",
+      "destination": "research/rmt/outputs/demo_prediction.json",
+      "sha256": "f71d4e36847dc1e540527b6b15adb36a03aba22337279c33321abd4bb6a83c8a"
+    },
+    {
+      "source": "rmt/practical/outputs/formation_rf.joblib",
+      "destination": "research/rmt/outputs/formation_rf.joblib",
+      "sha256": "c9feafddc13e77a099962bda271ceec8c6bb651e5bb1ea463ddcc3cee0524b31"
+    },
+    {
+      "source": "rmt/practical/outputs/integration_tests.json",
+      "destination": "research/rmt/outputs/integration_tests.json",
+      "sha256": "bb180ed5b440ca56254befd5cbe2a5a058748ba4bd9eb2f236decce369a31184"
+    },
+    {
+      "source": "rmt/practical/outputs/largest_errors.csv",
+      "destination": "research/rmt/outputs/largest_errors.csv",
+      "sha256": "9c59b654236979ae57020f6a53d1c6d74a05ac4dbe10b389e86ac6392752b05b"
+    },
+    {
+      "source": "rmt/practical/outputs/permutation_importance.csv",
+      "destination": "research/rmt/outputs/permutation_importance.csv",
+      "sha256": "8e66e0bd057597a2312d306e1eddca132f74aea0043449e75e6c332c7c0b80ac"
+    },
+    {
+      "source": "rmt/practical/outputs/results.json",
+      "destination": "research/rmt/outputs/results.json",
+      "sha256": "cb0e6033e80b0dfb55bc7fee8e13cf5e5e04b76cf54581814652380e56c02ccb"
+    },
+    {
+      "source": "rmt/practical/outputs/run_log.txt",
+      "destination": "research/rmt/outputs/run_log.txt",
+      "sha256": "d139c409cf2a8275fcfdc19d68dbdb3074a8121997bed1b513220323a251d867"
+    },
+    {
+      "source": "rmt/practical/outputs/source_manifest.json",
+      "destination": "research/rmt/outputs/source_manifest.json",
+      "sha256": "df94aa4656089e18dc37eae043b65780e8f63e76bdd35859291414a6e780838d"
+    },
+    {
+      "source": "rmt/practical/outputs/test_predictions.csv",
+      "destination": "research/rmt/outputs/test_predictions.csv",
+      "sha256": "423d299571f9c4ceeb27bcda979a2963fc2dcae8ca8e67835f2402e719c637ed"
+    },
+    {
+      "source": "rmt/practical/outputs/transfer_cohort.csv",
+      "destination": "research/rmt/outputs/transfer_cohort.csv",
+      "sha256": "cff7d149df8ba537d8a5c4bdd09b201c8f2f12e6b43ddf6c862d703fadbaca9b"
+    }
+  ]
+}

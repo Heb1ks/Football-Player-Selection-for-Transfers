@@ -1,0 +1,7 @@
+COHORT 781 real transfers
+SPLITS {'train': 405, 'test': 242, 'validation': 134}
+TEST {'individual_rf': {'MAE': 0.1466975291605432, 'RMSE': 0.20656429344752084}, 'formation_rf': {'MAE': 0.1487936991486628, 'RMSE': 0.20778282255112662}, 'training_mean': {'MAE': 0.21924554275819838, 'RMSE': 0.2858924528831177}, 'persistence': {'MAE': 0.1472911691413592, 'RMSE': 0.20683290608047208}}
+BOOTSTRAP {'baseline_minus_extended': -0.0012185291036057866, 'ci95': [-0.006334177568295145, 0.003765859928897929], 'resamples': 2000, 'unit': 'unique player transfer'}
+CHECKS {'unique_players': True, 'predictors_before_transfer': True, 'context_before_transfer': True, 'outcomes_after_transfer': True, 'no_missing_model_values': True}
+SOFTWARE {'python': '3.12.14', 'numpy': '2.5.4', 'pandas': '3.0.1', 'scikit-learn': '1.9.1'}
+RUNTIME 24.67 seconds

@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-15",
+  "scope": "30 warm serial local HTTP requests; 2023 all-position test pool; not a production load test",
+  "rows": 132,
+  "requests": 30,
+  "p50_ms": 61.42540000109875,
+  "p95_ms": 72.55339999755961,
+  "maximum_ms": 73.2373999999254,
+  "target_p95_ms": 2000,
+  "pass": true
+}
