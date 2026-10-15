@@ -1,0 +1,13 @@
+.venv/
+.packages/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+tmp/
+qa/
+output/*.zip
+research/rmt/data/*.csv.gz
+research/rmt/outputs/*.joblib
+research/rmt/survey/responses*.csv
