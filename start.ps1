@@ -5,7 +5,9 @@ if (!(Test-Path -LiteralPath '.venv/Scripts/python.exe')) {
     if (!(Test-Path -LiteralPath $taskPython)) { $taskPython = 'python' }
     & $taskPython -m venv .venv
     if ($LASTEXITCODE -ne 0) { throw 'Python 3.12 or newer is required.' }
-    & '.venv/Scripts/python.exe' -m pip install -r requirements.txt
+    $taskRequirements = 'requirements.txt'
+    if (Test-Path -LiteralPath 'requirements-lock.txt') { $taskRequirements = 'requirements-lock.txt' }
+    & '.venv/Scripts/python.exe' -m pip install -r $taskRequirements
     if ($LASTEXITCODE -ne 0) { throw 'Dependency installation failed.' }
 }
 if (!(Test-Path -LiteralPath 'models/individual_rf.joblib')) {

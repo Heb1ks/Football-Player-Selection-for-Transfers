@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="700" height="530" preserveAspectRatio="xMinYMin meet" viewBox="0 0 700 530" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="700" height="530"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-530)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="175" y="35" width="360" height="470" rx="4" ry="0" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1; fill: none; fill-rule: evenodd;"/>
+			<text x="284.98" y="480" style="font-family: Helvetica; font-size: 15px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,960) scale(1,-1)">TransferLens system</text>
+			<circle cx="75" cy="330" r="10" style="stroke: rgb(14%,22%,27%); stroke-linecap: butt; stroke-width: 1; fill: none; fill-rule: evenodd;"/>
+			<path d="M 75,320 L 75,285 Z" style="stroke: rgb(14%,22%,27%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 57,308 L 93,308 Z" style="stroke: rgb(14%,22%,27%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 75,285 L 58,262 Z" style="stroke: rgb(14%,22%,27%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 75,285 L 92,262 Z" style="stroke: rgb(14%,22%,27%); stroke-linecap: butt; stroke-width: 1;"/>
+			<text x="35.646" y="240" style="font-family: Helvetica; font-size: 12px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,480) scale(1,-1)">Scout / analyst</text>
+			<circle cx="625" cy="330" r="10" style="stroke: rgb(14%,22%,27%); stroke-linecap: butt; stroke-width: 1; fill: none; fill-rule: evenodd;"/>
+			<path d="M 625,320 L 625,285 Z" style="stroke: rgb(14%,22%,27%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 607,308 L 643,308 Z" style="stroke: rgb(14%,22%,27%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 625,285 L 608,262 Z" style="stroke: rgb(14%,22%,27%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 625,285 L 642,262 Z" style="stroke: rgb(14%,22%,27%); stroke-linecap: butt; stroke-width: 1;"/>
+			<text x="599.998" y="240" style="font-family: Helvetica; font-size: 12px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,480) scale(1,-1)">Reviewer</text>
+			<circle cx="75" cy="125" r="10" style="stroke: rgb(14%,22%,27%); stroke-linecap: butt; stroke-width: 1; fill: none; fill-rule: evenodd;"/>
+			<path d="M 75,115 L 75,80 Z" style="stroke: rgb(14%,22%,27%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 57,103 L 93,103 Z" style="stroke: rgb(14%,22%,27%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 75,80 L 58,57 Z" style="stroke: rgb(14%,22%,27%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 75,80 L 92,57 Z" style="stroke: rgb(14%,22%,27%); stroke-linecap: butt; stroke-width: 1;"/>
+			<text x="54.318" y="35" style="font-family: Helvetica; font-size: 12px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,70) scale(1,-1)">Student</text>
+			<ellipse cx="355.0" cy="420.0" rx="148.0" ry="24.0" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,95%); fill-rule: evenodd;"/>
+			<text x="287.632" y="416" style="font-family: Helvetica; font-size: 12px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,832) scale(1,-1)">Find and rank candidates</text>
+			<ellipse cx="355.0" cy="350.0" rx="148.0" ry="24.0" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,95%); fill-rule: evenodd;"/>
+			<text x="299.644" y="346" style="font-family: Helvetica; font-size: 12px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,692) scale(1,-1)">Inspect player profile</text>
+			<ellipse cx="355.0" cy="280.0" rx="148.0" ry="24.0" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,95%); fill-rule: evenodd;"/>
+			<text x="290.31399999999996" y="276" style="font-family: Helvetica; font-size: 12px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,552) scale(1,-1)">Compare saved shortlist</text>
+			<ellipse cx="355.0" cy="210.0" rx="148.0" ry="24.0" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,95%); fill-rule: evenodd;"/>
+			<text x="300.976" y="206" style="font-family: Helvetica; font-size: 12px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,412) scale(1,-1)">Explore club context</text>
+			<ellipse cx="355.0" cy="140.0" rx="148.0" ry="24.0" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,95%); fill-rule: evenodd;"/>
+			<text x="295.972" y="136" style="font-family: Helvetica; font-size: 12px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,272) scale(1,-1)">Export candidate CSV</text>
+			<ellipse cx="355.0" cy="70.0" rx="148.0" ry="24.0" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,95%); fill-rule: evenodd;"/>
+			<text x="291.646" y="66" style="font-family: Helvetica; font-size: 12px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,132) scale(1,-1)">Review model evidence</text>
+			<path d="M 98,300 L 207,420 Z" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 98,300 L 207,350 Z" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 98,300 L 207,280 Z" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 98,300 L 207,210 Z" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 98,300 L 207,140 Z" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 602,300 L 503,70 Z" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 98,100 L 207,70 Z" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1;"/>
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,16 @@
+flowchart LR
+  Scout[Scout or analyst] --- U1([Find and rank candidates])
+  Scout --- U2([Inspect player profile])
+  Scout --- U3([Compare saved shortlist])
+  Scout --- U4([Explore club context])
+  Scout --- U5([Export candidate CSV])
+  Reviewer --- U6([Review model evidence])
+  Student --- U6
+  subgraph TransferLens system
+    U1
+    U2
+    U3
+    U4
+    U5
+    U6
+  end

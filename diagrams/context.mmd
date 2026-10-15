@@ -1,0 +1,6 @@
+flowchart LR
+  Analyst[Scout or analyst] -->|Filter and inspect| App[TransferLens local app]
+  Supervisor -->|Review| App
+  Publisher[Dataset publisher] -->|Retained CSV snapshot| Pipeline[Offline RMT pipeline]
+  Pipeline -->|Fixed cohort and model artifacts| App
+  Pipeline -->|Research evidence| Repository[GitHub and report PDFs]

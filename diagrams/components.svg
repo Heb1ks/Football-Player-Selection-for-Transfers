@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="700" height="410" preserveAspectRatio="xMinYMin meet" viewBox="0 0 700 410" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="700" height="410"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-410)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="15" y="285" width="180" height="80" rx="7" ry="0" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,95%); fill-rule: evenodd;"/>
+			<text x="51.702" y="334.0" style="font-family: Helvetica; font-size: 14px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,668) scale(1,-1)">Browser frontend</text>
+			<text x="49.989" y="312.0" style="font-family: Helvetica; font-size: 11px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,624) scale(1,-1)">HTML CSS JavaScript</text>
+			<rect x="260" y="285" width="180" height="80" rx="7" ry="0" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,95%); fill-rule: evenodd;"/>
+			<text x="306.432" y="334.0" style="font-family: Helvetica; font-size: 14px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,668) scale(1,-1)">HTTP handler</text>
+			<text x="316.681" y="312.0" style="font-family: Helvetica; font-size: 11px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,624) scale(1,-1)">app/server.py</text>
+			<rect x="505" y="285" width="180" height="80" rx="7" ry="0" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,95%); fill-rule: evenodd;"/>
+			<text x="542.857" y="334.0" style="font-family: Helvetica; font-size: 14px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,668) scale(1,-1)">Inference engine</text>
+			<text x="566.2625" y="312.0" style="font-family: Helvetica; font-size: 11px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,624) scale(1,-1)">app/core.py</text>
+			<rect x="15" y="75" width="180" height="90" rx="7" ry="0" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,95%); fill-rule: evenodd;"/>
+			<text x="38.479" y="129.0" style="font-family: Helvetica; font-size: 14px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,258) scale(1,-1)">Browser localStorage</text>
+			<text x="47.536" y="107.0" style="font-family: Helvetica; font-size: 11px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,214) scale(1,-1)">saved scenario shortlist</text>
+			<rect x="260" y="75" width="180" height="90" rx="7" ry="0" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,95%); fill-rule: evenodd;"/>
+			<text x="301.371" y="129.0" style="font-family: Helvetica; font-size: 14px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,258) scale(1,-1)">CSV and JSON</text>
+			<text x="288.8675" y="107.0" style="font-family: Helvetica; font-size: 11px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,214) scale(1,-1)">cohort, metrics and tasks</text>
+			<rect x="505" y="75" width="180" height="90" rx="7" ry="0" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,95%); fill-rule: evenodd;"/>
+			<text x="530.425" y="129.0" style="font-family: Helvetica; font-size: 14px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,258) scale(1,-1)">Trusted RF pipelines</text>
+			<text x="542.112" y="107.0" style="font-family: Helvetica; font-size: 11px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,214) scale(1,-1)">individual and context</text>
+			<path d="M 195,325 L 260,325 Z" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="260 325, 252.7964 328.4797, 252.7964 321.5203" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(60%,67%,70%); fill-rule: evenodd;"/>
+			<text x="188.04500000000002" y="343" style="font-family: Helvetica; font-size: 10px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,686) scale(1,-1)">GET JSON / CSV</text>
+			<path d="M 440,325 L 505,325 Z" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="505 325, 497.7964 328.4797, 497.7964 321.5203" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(60%,67%,70%); fill-rule: evenodd;"/>
+			<text x="438.595" y="343" style="font-family: Helvetica; font-size: 10px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,686) scale(1,-1)">validated query</text>
+			<path d="M 105,285 L 105,165 Z" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="105 165, 108.4797 172.2036, 101.5203 172.2036" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(60%,67%,70%); fill-rule: evenodd;"/>
+			<text x="125.82" y="225" style="font-family: Helvetica; font-size: 10px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,450) scale(1,-1)">save / load</text>
+			<path d="M 595,285 L 595,165 Z" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="595 165, 598.4797 172.2036, 591.5203 172.2036" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(60%,67%,70%); fill-rule: evenodd;"/>
+			<text x="609.995" y="225" style="font-family: Helvetica; font-size: 10px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,450) scale(1,-1)">predict</text>
+			<path d="M 530,285 L 410,165 Z" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="410 165, 417.5542 167.6332, 412.6332 172.5542" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(60%,67%,70%); fill-rule: evenodd;"/>
+			<text x="412.265" y="224" style="font-family: Helvetica; font-size: 10px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,448) scale(1,-1)">read inputs</text>
+			<text x="181.8705" y="25" style="font-family: Helvetica; font-size: 11px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,50) scale(1,-1)">Offline build prepares artifacts; request handling never trains a model</text>
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,23 @@
+{
+  "title": "Development of an Intelligent System for Football Player Selection for Transfers Using Machine Learning",
+  "members": [
+    {
+      "name": "Rymbaev Eskender",
+      "github": "https://github.com/Heb1ks",
+      "proposed_responsibility": "Application, integration, repository and demo",
+      "verified_individual_contribution": "Pending confirmation and identifiable commits"
+    },
+    {
+      "name": "Diar Gizatov",
+      "github": "https://github.com/diar06kz",
+      "proposed_responsibility": "Data analysis, literature, evaluation and report review",
+      "verified_individual_contribution": "Pending confirmation and identifiable commits"
+    }
+  ],
+  "supervisor": "Kozhakhmet Zhaksylyk",
+  "repository": "https://github.com/Heb1ks/Football-Player-Selection-for-Transfers",
+  "shared_tracker": "https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/issues",
+  "local_tracker": "http://127.0.0.1:8765/board",
+  "deadline": "2026-10-24 18:00 Asia/Qyzylorda",
+  "note": "Names and GitHub URLs were supplied by Eskender. Responsibility allocation is proposed, not evidence of work performed."
+}
