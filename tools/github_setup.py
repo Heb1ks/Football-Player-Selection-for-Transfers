@@ -24,7 +24,7 @@ def main():
         print(json.dumps({'repository':repo['html_url'],'can_push':repo.get('permissions',{}).get('push',False),'issues_enabled':repo['has_issues']}))
         if args.check:return
         if args.status:
-            runs=request('/repos/'+REPO+'/actions/runs?branch=codex%2FDIP-01-predefense-mvp&per_page=5')['workflow_runs']
+            runs=request('/repos/'+REPO+'/actions/runs?branch=testing-mvp-eskeN&per_page=5')['workflow_runs']
             result=[{'name':r['name'],'status':r['status'],'conclusion':r['conclusion'],'url':r['html_url'],'commit':r['head_sha']} for r in runs]
             (ROOT/'output/ci-status.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
             print(json.dumps(result));return
@@ -34,11 +34,11 @@ def main():
             for task_id in ['DIP-01','DIP-02','DIP-03','DIP-04','DIP-05']:
                 number=links[task_id]['number'];issue=request('/repos/'+REPO+'/issues/'+str(number))
                 if pr not in (issue.get('body') or ''):
-                    body=(issue.get('body') or '')+'\n\n## Implementation and review\n'+pr+'\n\nEvidence is available on branch codex/DIP-01-predefense-mvp. This issue remains open pending team review.\n'
+                    body=(issue.get('body') or '')+'\n\n## Implementation and review\n'+pr+'\n\nEvidence is available on branch testing-mvp-eskeN. This issue remains open pending team review.\n'
                     request('/repos/'+REPO+'/issues/'+str(number),'PATCH',{'body':body})
             print('Linked the actual draft PR to five implementation/documentation issues; all remain open.');return
         if args.open_pr:
-            branch='codex/DIP-01-predefense-mvp'
+            branch='testing-mvp-eskeN'
             existing=request('/repos/'+REPO+'/pulls?state=open&head=Heb1ks:'+branch)
             if existing:pr=existing[0]
             else:

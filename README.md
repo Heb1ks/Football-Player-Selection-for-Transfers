@@ -4,7 +4,7 @@
 
 A working early diploma prototype for historical football recruitment analysis. Define a recruitment brief, inspect player forecasts and their dated inputs, save candidates for comparison, explore a destination's prior formation context, and export CSV results.
 
-Review package: [draft pull request #12](https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/pull/12). The implementation is on `codex/DIP-01-predefense-mvp`; merge only after actual team review. No submission tag has been created.
+Review package: [draft pull request #13](https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/pull/13). The implementation is on `testing-mvp-eskeN`; merge only after actual team review. No submission tag has been created.
 
 ![Recruitment interface](docs/screenshots/discovery.jpg)
 
