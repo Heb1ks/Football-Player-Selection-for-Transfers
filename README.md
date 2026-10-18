@@ -85,7 +85,6 @@ The downloader verifies retained hashes and refuses a changed upstream snapshot.
 - [Submission checklist and form field draft](docs/submission-checklist-ru.md)
 - [Interview guide](docs/interview-guide.md) and [supervisor feedback log](docs/supervisor-feedback.md)
 
-The report contains the proposal, data-based relevance evidence, 13 used sources including 8 scientific publications, 4-system/8-criterion comparison, technology alternatives, requirements, architecture, prototype, evaluation, management/risks and an explicitly pending supervisor-feedback section.
 
 ## Repository layout
 
@@ -101,9 +100,3 @@ tools/               Reproduction, documentation and packaging scripts
 output/pdf/          Two separate form deliverables
 .github/workflows/   Automated checks
 ```
-
-Selected technologies: Python, pandas, NumPy, scikit-learn Random Forest, HTTP JSON/CSV, buildless HTML/CSS/JavaScript and browser localStorage. Detailed decisions and alternatives are in report section 5.
-
-## Before 24 October 2026 at 18:00
-
-Conduct 3–5 genuine user discussions or obtain a qualifying client agreement, get substantive supervisor feedback, confirm owners, record each member's real contribution and peer review, verify committee access and regenerate both PDFs. Tag the exact reviewed submission as `pre-defense-1` only then. A complete application is not required for this stage, but fabricated evidence or a last-minute package cannot substitute for actual progressive contributions and review.
