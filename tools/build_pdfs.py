@@ -14,26 +14,26 @@ from io import BytesIO
 ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'output/pdf';OUT.mkdir(parents=True,exist_ok=True)
 fontdir=Path('C:/Windows/Fonts')
 if fontdir.exists():
-    pdfmetrics.registerFont(TTFont('Body',str(fontdir/'arial.ttf')));pdfmetrics.registerFont(TTFont('Body-Bold',str(fontdir/'arialbd.ttf')))
+    pdfmetrics.registerFont(TTFont('Body',str(fontdir/'times.ttf')));pdfmetrics.registerFont(TTFont('Body-Bold',str(fontdir/'timesbd.ttf')))
 else:
     fontdir=Path('/usr/share/fonts/truetype/dejavu')
-    pdfmetrics.registerFont(TTFont('Body',str(fontdir/'DejaVuSans.ttf')));pdfmetrics.registerFont(TTFont('Body-Bold',str(fontdir/'DejaVuSans-Bold.ttf')))
+    pdfmetrics.registerFont(TTFont('Body',str(fontdir/'DejaVuSerif.ttf')));pdfmetrics.registerFont(TTFont('Body-Bold',str(fontdir/'DejaVuSerif-Bold.ttf')))
 pdfmetrics.registerFontFamily('Body',normal='Body',bold='Body-Bold',italic='Body',boldItalic='Body-Bold')
 styles={
-    'body':ParagraphStyle('body',fontName='Body',fontSize=10.2,leading=14.8,spaceAfter=9,textColor=colors.HexColor('#25323d'),splitLongWords=True),
-    'h1':ParagraphStyle('h1',fontName='Body-Bold',fontSize=24,leading=30,spaceAfter=24,textColor=colors.black),
-    'h2':ParagraphStyle('h2',fontName='Body-Bold',fontSize=17,leading=23,spaceBefore=6,spaceAfter=17,keepWithNext=True,textColor=colors.black),
-    'h3':ParagraphStyle('h3',fontName='Body-Bold',fontSize=11.5,leading=16,spaceBefore=13,spaceAfter=8,keepWithNext=True,textColor=colors.black),
-    'cell':ParagraphStyle('cell',fontName='Body',fontSize=8.3,leading=11.7,spaceAfter=0),
-    'head':ParagraphStyle('head',fontName='Body-Bold',fontSize=8.3,leading=11.7,textColor=colors.white,spaceAfter=0),
-    'caption':ParagraphStyle('caption',fontName='Body',fontSize=8.2,leading=11.5,spaceBefore=5,spaceAfter=14,textColor=colors.HexColor('#67747e')),
+    'body':ParagraphStyle('body',fontName='Body',fontSize=12,leading=13.8,spaceAfter=5,textColor=colors.black,splitLongWords=True),
+    'h1':ParagraphStyle('h1',fontName='Body-Bold',fontSize=18,leading=22,spaceAfter=18,textColor=colors.black),
+    'h2':ParagraphStyle('h2',fontName='Body-Bold',fontSize=14,leading=18,spaceBefore=4,spaceAfter=10,keepWithNext=True,textColor=colors.black),
+    'h3':ParagraphStyle('h3',fontName='Body-Bold',fontSize=12,leading=15,spaceBefore=8,spaceAfter=5,keepWithNext=True,textColor=colors.black),
+    'cell':ParagraphStyle('cell',fontName='Body',fontSize=10,leading=12.5,spaceAfter=0,textColor=colors.black),
+    'head':ParagraphStyle('head',fontName='Body-Bold',fontSize=10,leading=12.5,textColor=colors.black,spaceAfter=0),
+    'caption':ParagraphStyle('caption',fontName='Body',fontSize=10,leading=12.5,spaceBefore=5,spaceAfter=12,textColor=colors.black),
 }
 def inline(text):
     text=text.replace('–','-').replace('—','-').replace('\u2011','-')
     text=escape(text)
     text=re.sub(r'\*\*(.+?)\*\*',r'<b>\1</b>',text)
-    text=re.sub(r'`([^`]+)`',r'<font size="9">\1</font>',text)
-    text=re.sub(r'https?://[^\s<>]+',lambda m:'<link href='+quoteattr(m.group().rstrip('.'))+' color="#285c7b">'+m.group().rstrip('.')+'</link>'+('.' if m.group().endswith('.') else ''),text)
+    text=re.sub(r'`([^`]+)`',r'\1',text)
+    text=re.sub(r'https?://[^\s<>]+',lambda m:'<link href='+quoteattr(m.group().rstrip('.'))+' color="black">'+m.group().rstrip('.')+'</link>'+('.' if m.group().endswith('.') else ''),text)
     return text
 def p(text,style='body'):return Paragraph(inline(text),styles[style])
 def image(path,maxwidth,maxheight):
@@ -56,13 +56,6 @@ def detail_image(path,maxwidth,maxheight):
     stream=BytesIO();im.save(stream,format='PNG');stream.seek(0)
     scale=min(maxwidth/im.width,maxheight/im.height)
     return Image(stream,width=im.width*scale,height=im.height*scale,hAlign='CENTER')
-def footer(canvas,doc):
-    w,h=doc.pagesize
-    canvas.saveState();canvas.setFillColor(colors.HexColor('#7a868f'));canvas.setFont('Body',8)
-    date=getattr(doc,'document_date','15 OCTOBER 2026')
-    canvas.drawString(doc.leftMargin,h-31,'TRANSFERLENS   |   APPROBATION MATERIALS   |   '+date)
-    canvas.drawString(doc.leftMargin,25,'Rymbaev Eskender and Diar Gizatov')
-    canvas.drawRightString(w-doc.rightMargin,25,str(doc.page));canvas.restoreState()
 def table(lines,width):
     values=[[x.strip() for x in line.strip().strip('|').split('|')] for line in lines]
     values=[row for row in values if not all(re.fullmatch(r'[: -]+',x) for x in row)]
@@ -71,7 +64,7 @@ def table(lines,width):
     if values[0][0]=='Audit step':weights=[2.0,.9,3.1]
     data=[[p(x,'head' if i==0 else 'cell') for x in row] for i,row in enumerate(values)]
     t=Table(data,colWidths=[width*x/sum(weights) for x in weights],repeatRows=1,hAlign='LEFT')
-    t.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),colors.HexColor('#253d4e')),('ROWBACKGROUNDS',(0,1),(-1,-1),[colors.white,colors.HexColor('#f3f6f8')]),('GRID',(0,0),(-1,-1),.45,colors.HexColor('#d9d9d9')),('VALIGN',(0,0),(-1,-1),'MIDDLE'),('LEFTPADDING',(0,0),(-1,-1),7),('RIGHTPADDING',(0,0),(-1,-1),7),('TOPPADDING',(0,0),(-1,-1),7),('BOTTOMPADDING',(0,0),(-1,-1),7)]))
+    t.setStyle(TableStyle([('GRID',(0,0),(-1,-1),.5,colors.black),('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),6),('RIGHTPADDING',(0,0),(-1,-1),6),('TOPPADDING',(0,0),(-1,-1),6),('BOTTOMPADDING',(0,0),(-1,-1),6)]))
     return t
 class ReportDocument(SimpleDocTemplate):
     def afterFlowable(self,flowable):
@@ -84,8 +77,7 @@ class ReportDocument(SimpleDocTemplate):
         self.notify('TOCEntry',(0,text,self.page,key))
 
 def report():
-    doc=ReportDocument(str(OUT/'TransferLens_PreDefense_Report.pdf'),pagesize=A4,leftMargin=46,rightMargin=46,topMargin=56,bottomMargin=47,title='TransferLens Probationary Period 1 Report',author='Rymbaev Eskender and Diar Gizatov')
-    doc.document_date='18 OCTOBER 2026'
+    doc=ReportDocument(str(OUT/'TransferLens_PreDefense_Report.pdf'),pagesize=A4,leftMargin=56.7,rightMargin=56.7,topMargin=56.7,bottomMargin=56.7,title='TransferLens Probationary Period 1 Report',author='Rymbaev Eskender and Diar Gizatov')
     lines=(ROOT/'docs/report.md').read_text(encoding='utf-8').splitlines();story=[];i=0
     while i<len(lines):
         line=lines[i].strip()
@@ -93,7 +85,7 @@ def report():
         if line=='<!-- pagebreak -->':story.append(PageBreak());i+=1;continue
         if line=='<!-- toc -->':
             toc=TableOfContents()
-            toc.levelStyles=[ParagraphStyle('toc-entry',fontName='Body',fontSize=10.2,leading=16,spaceBefore=9,leftIndent=0,rightIndent=22,textColor=colors.HexColor('#25323d'))]
+            toc.levelStyles=[ParagraphStyle('toc-entry',fontName='Body',fontSize=12,leading=17,spaceBefore=5,leftIndent=0,rightIndent=22,textColor=colors.black)]
             story.extend([p('Table of contents','h2'),toc]);i+=1;continue
         if line.startswith('|'):
             chunk=[]
@@ -115,7 +107,7 @@ def report():
         while i<len(lines) and lines[i].strip() and not lines[i].lstrip().startswith(('#','|','![','<!--')) and not re.match(r'^\d+\. ',lines[i].strip()):
             chunk.append(lines[i].strip());i+=1
         story.append(p(' '.join(chunk)))
-    doc.multiBuild(story,onFirstPage=footer,onLaterPages=footer)
+    doc.multiBuild(story)
     import shutil
     team=json.loads((ROOT/'docs/team.json').read_text(encoding='utf-8'))
     group=team.get('group')
@@ -135,7 +127,7 @@ def board():
     story.append(PageBreak());story.append(p('Task index and links','h2'))
     tasks=json.loads((ROOT/'docs/tasks.json').read_text(encoding='utf-8'))['tasks']
     for t in tasks:story.append(p(t['id']+' '+t['title']+' | '+t['status']+' | '+t.get('issue_url','Link pending')))
-    doc.build(story,onFirstPage=footer,onLaterPages=footer)
+    doc.build(story)
 
 if __name__=='__main__':
     report();board();print('Built unified report and screenshot evidence PDFs.')

@@ -401,9 +401,3 @@ Task definitions and acceptance criteria: https://github.com/Heb1ks/Football-Pla
 Shared issue tracker: https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/issues
 
 The prototype runs locally after installation. No public hosted application is claimed. The repository, sources, screenshots and supporting artifacts can be inspected through the full links above without access to the students' computer.
-
-## Appendix B Reproduction and demonstration
-
-Install Python 3.12 and run ./start.ps1 from the project directory. It creates .venv and installs pinned dependencies, then serves http://127.0.0.1:8765. The committed models and derived cohort support offline inference after dependency installation. To reproduce training, restore the four exact raw files with tools/download_data.py, then run tools/rebuild_models.py. The downloader refuses changed hashes rather than silently substituting another dataset. The retained full archive also contains the original input snapshot.
-
-Run python -m unittest discover -s tests -v with the installed environment. For a five-minute demonstration follow docs/demo-script-ru.md. Open /board to inspect work items and their acceptance criteria. Do not claim that a local URL is accessible to a remote committee. Before submission verify actual repository and task links and preserve the exact reviewed revision.
