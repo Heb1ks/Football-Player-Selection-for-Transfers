@@ -4,7 +4,7 @@
 
 A working early diploma prototype for historical football recruitment analysis. Define a recruitment brief, inspect player forecasts and their dated inputs, save candidates for comparison, explore a destination's prior formation context, and export CSV results.
 
-Review package: [draft pull request #13](https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/pull/13). The implementation is on `testing-mvp-eskeN`; merge only after actual team review. No submission tag has been created.
+Review package: [draft pull request #13](https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/pull/13). The implementation is on `testing-mvp-eskeN`; merge only after actual team review. Submission snapshot: [prob-period-1](https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/tree/prob-period-1). This tag identifies the uploaded version and does not establish approval.
 
 ![Recruitment interface](docs/screenshots/discovery.jpg)
 
@@ -77,7 +77,7 @@ The downloader verifies retained hashes and refuses a changed upstream snapshot.
 
 ## Documentation and project tracking
 
-- [Single approbation report PDF](output/pdf/TransferLens_PreDefense_Report.pdf) and [editable report](docs/report.md)
+- [Consolidated probationary report PDF](output/pdf/SE-2421_Rymbaev_ProbPeriod1.pdf) and [editable report](docs/report.md)
 - [Board and task screenshot PDF](output/pdf/TransferLens_Task_Board_Evidence.pdf)
 - [Shared GitHub Issues](https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/issues), [task definitions](docs/tasks.json), and local board at `/board`
 - [Context, use-case and component diagrams](diagrams/), editable Mermaid/PlantUML plus SVG/PNG

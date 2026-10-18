@@ -3,6 +3,7 @@ from pathlib import Path
 import re, json
 from xml.sax.saxutils import escape, quoteattr
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, Image, PageBreak, KeepTogether
+from reportlab.platypus.tableofcontents import TableOfContents
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4,landscape
@@ -58,7 +59,8 @@ def detail_image(path,maxwidth,maxheight):
 def footer(canvas,doc):
     w,h=doc.pagesize
     canvas.saveState();canvas.setFillColor(colors.HexColor('#7a868f'));canvas.setFont('Body',8)
-    canvas.drawString(doc.leftMargin,h-31,'TRANSFERLENS   |   APPROBATION MATERIALS   |   15 OCTOBER 2026')
+    date=getattr(doc,'document_date','15 OCTOBER 2026')
+    canvas.drawString(doc.leftMargin,h-31,'TRANSFERLENS   |   APPROBATION MATERIALS   |   '+date)
     canvas.drawString(doc.leftMargin,25,'Rymbaev Eskender and Diar Gizatov')
     canvas.drawRightString(w-doc.rightMargin,25,str(doc.page));canvas.restoreState()
 def table(lines,width):
@@ -71,13 +73,28 @@ def table(lines,width):
     t=Table(data,colWidths=[width*x/sum(weights) for x in weights],repeatRows=1,hAlign='LEFT')
     t.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),colors.HexColor('#253d4e')),('ROWBACKGROUNDS',(0,1),(-1,-1),[colors.white,colors.HexColor('#f3f6f8')]),('GRID',(0,0),(-1,-1),.45,colors.HexColor('#d9d9d9')),('VALIGN',(0,0),(-1,-1),'MIDDLE'),('LEFTPADDING',(0,0),(-1,-1),7),('RIGHTPADDING',(0,0),(-1,-1),7),('TOPPADDING',(0,0),(-1,-1),7),('BOTTOMPADDING',(0,0),(-1,-1),7)]))
     return t
+class ReportDocument(SimpleDocTemplate):
+    def afterFlowable(self,flowable):
+        if not isinstance(flowable,Paragraph) or flowable.style.name!='h2':return
+        text=flowable.getPlainText()
+        if not re.match(r'^(?:\d+ |References$|Appendix )',text):return
+        key='section-'+re.sub(r'[^a-z0-9]+','-',text.lower()).strip('-')
+        self.canv.bookmarkPage(key)
+        self.canv.addOutlineEntry(text,key,level=0)
+        self.notify('TOCEntry',(0,text,self.page,key))
+
 def report():
-    doc=SimpleDocTemplate(str(OUT/'TransferLens_PreDefense_Report.pdf'),pagesize=A4,leftMargin=46,rightMargin=46,topMargin=56,bottomMargin=47,title='TransferLens Approbation Report',author='Rymbaev Eskender and Diar Gizatov')
+    doc=ReportDocument(str(OUT/'TransferLens_PreDefense_Report.pdf'),pagesize=A4,leftMargin=46,rightMargin=46,topMargin=56,bottomMargin=47,title='TransferLens Probationary Period 1 Report',author='Rymbaev Eskender and Diar Gizatov')
+    doc.document_date='18 OCTOBER 2026'
     lines=(ROOT/'docs/report.md').read_text(encoding='utf-8').splitlines();story=[];i=0
     while i<len(lines):
         line=lines[i].strip()
         if not line:i+=1;continue
         if line=='<!-- pagebreak -->':story.append(PageBreak());i+=1;continue
+        if line=='<!-- toc -->':
+            toc=TableOfContents()
+            toc.levelStyles=[ParagraphStyle('toc-entry',fontName='Body',fontSize=10.2,leading=16,spaceBefore=9,leftIndent=0,rightIndent=22,textColor=colors.HexColor('#25323d'))]
+            story.extend([p('Table of contents','h2'),toc]);i+=1;continue
         if line.startswith('|'):
             chunk=[]
             while i<len(lines) and lines[i].strip().startswith('|'):chunk.append(lines[i]);i+=1
@@ -98,7 +115,11 @@ def report():
         while i<len(lines) and lines[i].strip() and not lines[i].lstrip().startswith(('#','|','![','<!--')) and not re.match(r'^\d+\. ',lines[i].strip()):
             chunk.append(lines[i].strip());i+=1
         story.append(p(' '.join(chunk)))
-    doc.build(story,onFirstPage=footer,onLaterPages=footer)
+    doc.multiBuild(story,onFirstPage=footer,onLaterPages=footer)
+    import shutil
+    team=json.loads((ROOT/'docs/team.json').read_text(encoding='utf-8'))
+    group=team.get('group')
+    if group:shutil.copyfile(OUT/'TransferLens_PreDefense_Report.pdf',OUT/f'{group}_Rymbaev_ProbPeriod1.pdf')
 
 def board():
     doc=SimpleDocTemplate(str(OUT/'TransferLens_Task_Board_Evidence.pdf'),pagesize=A4,leftMargin=30,rightMargin=30,topMargin=48,bottomMargin=40,title='TransferLens Task Board Evidence',author='Rymbaev Eskender and Diar Gizatov')

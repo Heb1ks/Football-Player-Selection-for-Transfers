@@ -6,13 +6,18 @@ Official project title: Development of an Intelligent System for Football Player
 
 Team: Rymbaev Eskender (https://github.com/Heb1ks) and Diar Gizatov (https://github.com/diar06kz). Supervisor: Kozhakhmet Zhaksylyk.
 
+Representative group: SE-2421. Submission file: SE-2421_Rymbaev_ProbPeriod1.pdf.
+
 Repository: https://github.com/Heb1ks/Football-Player-Selection-for-Transfers
 
 Task tracker: https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/issues
 
-Prepared on 15 October 2026. Submission deadline communicated to the team: 24 October 2026 at 18:00, Asia/Qyzylorda. The exact submitted revision must be tagged pre-defense-1 after team and supervisor review; no submission tag or approval is claimed here.
+Initially prepared on 15 October 2026; submission links and document navigation updated on 18 October 2026. Submission deadline communicated to the team: 24 October 2026 at 18:00, Asia/Qyzylorda. Submission snapshot: https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/tree/prob-period-1. The tag records repository contents; it does not establish supervisor approval or completion of pending validation.
 
 We have built TransferLens, a local working prototype that filters historical football transfer candidates, predicts attacking output, compares two models, saves a shortlist and exports a CSV. It reuses our RMT research rather than claiming a second independent experiment. This report separates implemented artifacts, measured evidence and outstanding validation. Real user discussions, substantive supervisor feedback and independently reviewed personal contributions still need to be supplied before the submission is complete.
+
+<!-- pagebreak -->
+<!-- toc -->
 
 <!-- pagebreak -->
 ## 1 Project proposal
@@ -267,7 +272,7 @@ The maintained repository is https://github.com/Heb1ks/Football-Player-Selection
 
 The proposed allocation is Eskender for application, integration, repository and demonstration, and Diar for data checks, literature, evaluation and report review. This is a proposed plan, not a claim that each artifact already represents that student's individual work. Both members must confirm the allocation and produce identifiable changes under their own accounts. No commits are backdated, no review is invented and no AI-generated change is attributed to Diar without his participation.
 
-Develop on task branches, reference both DIP ID and actual GitHub issue number in commits or PRs, and request the other member's review before merging into main. Documentation changes count as substantive work when reviewed. Create pre-defense-1 only after the exact submission revision is approved. The current package created on 15 October is a starting milestone; it does not by itself prove progressive development by both members.
+Develop on task branches, reference both DIP ID and actual GitHub issue number in commits or PRs, and request the other member's review before merging into main. Documentation changes count as substantive work when reviewed. Use prob-period-1 to identify the exact repository version matching the uploaded materials. Supervisor approval and individual contributions require separate evidence. The initial package created on 15 October is a starting milestone; it does not by itself prove progressive development by both members.
 
 | Milestone | Target date | Evidence required |
 | --- | --- | --- |
@@ -370,7 +375,32 @@ Internal evidence: RMT Assignment 2 research question and Assignment 3 practical
 | Management | Section 10; tasks and repository | Tasks prepared; personal ownership/review still need confirmation |
 | Supervisor feedback | Section 11; feedback record | Pending actual review |
 
-The single report is output/pdf/TransferLens_PreDefense_Report.pdf. The separate board/task screenshot document is output/pdf/TransferLens_Task_Board_Evidence.pdf. They serve different form fields. The board PDF must be regenerated after the final shared tracker state, owners and linked reviews are updated.
+The consolidated upload is output/pdf/SE-2421_Rymbaev_ProbPeriod1.pdf. The same report is retained at output/pdf/TransferLens_PreDefense_Report.pdf for existing repository links. The separate board/task screenshot document is output/pdf/TransferLens_Task_Board_Evidence.pdf. They serve different form fields. The board PDF must be regenerated after the final shared tracker state, owners and linked reviews are updated.
+
+<!-- pagebreak -->
+### Accessible materials for the submitted version
+
+Submitted project snapshot: https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/tree/prob-period-1
+
+Runnable prototype source: https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/tree/prob-period-1/app
+
+Installation and launch instructions: https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/blob/prob-period-1/README.md
+
+Prototype screenshots: https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/tree/prob-period-1/docs/screenshots
+
+Editable context diagram: https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/blob/prob-period-1/diagrams/context.mmd
+
+Editable use-case diagram: https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/blob/prob-period-1/diagrams/use-cases.puml
+
+Editable component diagram: https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/blob/prob-period-1/diagrams/components.mmd
+
+Research source and retained results: https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/tree/prob-period-1/research/rmt
+
+Task definitions and acceptance criteria: https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/blob/prob-period-1/docs/tasks.json
+
+Shared issue tracker: https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/issues
+
+The prototype runs locally after installation. No public hosted application is claimed. The repository, sources, screenshots and supporting artifacts can be inspected through the full links above without access to the students' computer.
 
 ## Appendix B Reproduction and demonstration
 

@@ -206,7 +206,7 @@
       "acceptance": [
         "Resolve supervisor and team metadata",
         "Check actual final report and board PDF",
-        "Create immutable pre-defense-1 tag after review",
+        "Create prob-period-1 tag matching the uploaded submission materials",
         "Test links from a committee account",
         "One representative submits before 18:00"
       ],
