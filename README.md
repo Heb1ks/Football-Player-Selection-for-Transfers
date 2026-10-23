@@ -66,6 +66,14 @@ Adding nominal formations did **not** improve test performance. Individual RF is
 
 Eleven automated tests passed locally, including a second run in an independent project virtual environment without RMT libraries. The complete resolved versions are in [requirements-lock.txt](requirements-lock.txt). See [test results](output/test-results.txt), [browser walkthrough](docs/browser-checks.md), and [latency measurement](output/latency.json). CI runs the same suite; remote CI status must be checked separately.
 
+Frontend regression checks use Node.js 22 and require no npm dependencies:
+
+```powershell
+node --test tests/frontend.test.cjs
+```
+
+Six checks cover shortlist recovery, duplicate entries, out-of-order responses, failed requests, empty searches and undo. See the [frontend review guide](docs/frontend-review-ru.md) for manual checks. These refinements are on the development branch; the `prob-period-1` submission snapshot remains unchanged.
+
 To rebuild training outputs from the exact original data:
 
 ```powershell
