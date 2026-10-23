@@ -71,3 +71,44 @@ test('duplicate saved candidates are shown once', () => {
     const item = candidate();
     assert.equal(workspace(JSON.stringify([item, item])).snapshot().saved.length, 1);
 });
+
+test('out-of-order responses retain the latest pool and matching export parameters', async () => {
+    const app = workspace();
+    const first = app.context.load();
+    assert.equal(app.element('#export').disabled, true);
+    app.element('#filters').values = {season: '2024', model: 'formation_rf'};
+    const second = app.context.load();
+    app.respond(1, [candidate(2, 2024)]);
+    await second;
+    app.respond(0, [candidate(1, 2023)]);
+    await first;
+    assert.equal(app.snapshot().rows[0].player_id, 2);
+    assert.equal(app.snapshot().query, 'season=2024&model=formation_rf');
+    assert.equal(app.element('#export').disabled, false);
+    assert.equal(app.element('.table-wrap').attributes['aria-busy'], 'false');
+});
+
+test('failed requests clear the pool and keep export unavailable', async () => {
+    const app = workspace();
+    const success = app.context.load();
+    app.respond(0, [candidate()]);
+    await success;
+    const failure = app.context.load();
+    app.respond(1, [], false);
+    await failure;
+    assert.deepEqual(app.snapshot().rows, []);
+    assert.equal(app.element('#export').disabled, true);
+    assert.equal(app.element('#error').hidden, false);
+    assert.equal(app.element('#filters .primary').disabled, false);
+});
+
+test('export is unavailable when a name search hides every candidate', async () => {
+    const app = workspace();
+    const pending = app.context.load();
+    app.respond(0, [candidate()]);
+    await pending;
+    app.element('#search').value = 'No such player';
+    app.context.renderRows();
+    assert.equal(app.element('#result-count').textContent, '0');
+    assert.equal(app.element('#export').disabled, true);
+});
