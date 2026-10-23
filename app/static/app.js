@@ -1,5 +1,35 @@
-const $=s=>document.querySelector(s);let meta,rows=[],activeView='scout',query=new URLSearchParams(),saved;try{saved=JSON.parse(localStorage.getItem('transferlens-shortlist')||'[]');if(!Array.isArray(saved))saved=[]}catch{saved=[]}
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const fmt=x=>Number(x).toFixed(3);let requestId=0;
+
+const $ = selector => document.querySelector(selector);
+let meta, rows = [], activeView = 'scout', query = new URLSearchParams();
+let requestId = 0, loading = false, toastTimer;
+let saved = readShortlist();
+
+function candidateKey(row, model) {
+    return `${row.player_id}-${row.season}-${row.scenario_club}-${model}`;
+}
+
+function readShortlist() {
+    try {
+        const records = JSON.parse(localStorage.getItem('transferlens-shortlist') || '[]');
+        if (!Array.isArray(records)) return [];
+        const seen = new Set();
+        return records.filter(row => {
+            if (!row || typeof row !== 'object') return false;
+            const textFields = ['player_name', 'position', 'origin_club', 'scenario_club', 'key'];
+            const numberFields = ['player_id', 'season', 'age', 'pre_minutes', 'prediction', 'persistence', 'context_prediction'];
+            if (!textFields.every(field => typeof row[field] === 'string')) return false;
+            if (!numberFields.every(field => Number.isFinite(row[field]))) return false;
+            if (![2023, 2024].includes(row.season)) return false;
+            if (!['individual_rf', 'formation_rf'].includes(row.model)) return false;
+            if (row.key !== candidateKey(row, row.model) || seen.has(row.key)) return false;
+            seen.add(row.key);
+            return true;
+        });
+    } catch {
+        return [];
+    }
+}
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const fmt=x=>Number(x).toFixed(3);
 function toast(s){$('#toast').textContent=s;$('#toast').style.display='block';setTimeout(()=>$('#toast').style.display='none',2300)}
 function persist(){try{localStorage.setItem('transferlens-shortlist',JSON.stringify(saved))}catch{toast('Browser storage unavailable; shortlist lasts this session.')}$('#saved-count').textContent=saved.length}
 function saveRow(id){const row=rows.find(r=>r.player_id===id);if(!row)return;const key=`${id}-${row.season}-${row.scenario_club}-${query.get('model')}`;const at=saved.findIndex(r=>r.key===key);if(at>=0){saved.splice(at,1);toast('Removed from shortlist')}else{saved.push({...row,key,model:query.get('model')});toast('Candidate saved')}persist();renderRows()}
