@@ -30,6 +30,7 @@ function readShortlist() {
     }
 }
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const fmt=x=>Number(x).toFixed(3);
+
 function toast(message, undo) {
     clearTimeout(toastTimer);
     const notice = $('#toast');
@@ -50,7 +51,31 @@ function toast(message, undo) {
 }
 function persist(){try{localStorage.setItem('transferlens-shortlist',JSON.stringify(saved))}catch{toast('Browser storage unavailable; shortlist lasts this session.')}$('#saved-count').textContent=saved.length;$('#clear-saved').disabled=saved.length===0}
 
-function saveRow(id){const row=rows.find(r=>r.player_id===id);if(!row)return;const key=`${id}-${row.season}-${row.scenario_club}-${query.get('model')}`;const at=saved.findIndex(r=>r.key===key);if(at>=0){saved.splice(at,1);toast('Removed from shortlist')}else{saved.push({...row,key,model:query.get('model')});toast('Candidate saved')}persist();renderRows()}
+function updateDetailSave(row) {
+    const button = $('#detail-save');
+    if (!button || Number(button.dataset.player) !== row.player_id) return;
+    const selected = saved.some(item => item.key === candidateKey(row, query.get('model')));
+    button.textContent = selected ? '★ Remove from shortlist' : '☆ Save candidate';
+    button.setAttribute('aria-pressed', String(selected));
+}
+
+function saveRow(id) {
+    const row = rows.find(item => item.player_id === id);
+    if (!row || loading) return;
+    const key = candidateKey(row, query.get('model'));
+    const index = saved.findIndex(item => item.key === key);
+    if (index >= 0) {
+        saved.splice(index, 1);
+        toast('Removed from shortlist');
+    } else {
+        saved.push({...row, key, model: query.get('model')});
+        toast('Candidate saved');
+    }
+    persist();
+    renderRows();
+    updateDetailSave(row);
+}
+
 function removeSaved(index) {
     const previous = saved.slice();
     saved.splice(index, 1);
@@ -117,8 +142,8 @@ async function load() {
         }
     }
 }
-function profile(id){const r=rows.find(x=>x.player_id===id);if(!r)return;$('#detail-content').innerHTML=`<h2 class="detail-name">${esc(r.player_name)}</h2><p class="detail-meta">${esc(r.position)} · ${r.age.toFixed(1)} years · ${esc(r.origin_club)}</p><div class="score-row"><div><small>INDIVIDUAL RF</small><strong>${fmt(r.individual_prediction)}</strong></div><div><small>RF + FORMATIONS</small><strong>${fmt(r.context_prediction)}</strong></div><div><small>PRIOR GA90</small><strong>${fmt(r.persistence)}</strong></div></div><p class="detail-lines">Scenario destination: <b>${esc(r.scenario_club)}</b><br>Historical transfer: ${esc(r.transfer_date)} → ${esc(r.destination_club)}<br>Last player input: ${esc(r.pre_last_date)}<br>Last club context: ${esc(r.context_last_date)}</p><table class="detail-table"><tr><td>Prior goals / 90</td><td>${fmt(r.pre_goals90)}</td></tr><tr><td>Prior assists / 90</td><td>${fmt(r.pre_assists90)}</td></tr><tr><td>Prior minutes / appearances</td><td>${r.pre_minutes} / ${r.pre_appearances}</td></tr><tr><td>4-3-3 / 4-2-3-1 / 4-4-2 share</td><td>${(r.share_433*100).toFixed(0)}% / ${(r.share_4231*100).toFixed(0)}% / ${(r.share_442*100).toFixed(0)}%</td></tr><tr><td>Formation data coverage</td><td>${(r.formation_coverage*100).toFixed(0)}%</td></tr></table><p class="detail-lines">${r.factual_context?`Observed GA90 at the recorded destination: <b>${fmt(r.observed_original_ga90)}</b>. This outcome is shown after inference and never supplied to either model.`:'Destination changed. No observed outcome exists for this scenario; this is an associative model estimate.'}</p><p class="hint">Club formations are a weak tactical proxy. GA90 does not measure defensive contribution, affordability or causal fit. Population RMSE is not an individual confidence interval.</p><button class="primary" id="detail-save">☆ Save or remove candidate</button>`;$('#detail-save').onclick=()=>saveRow(id);$('#detail').showModal()}
+function profile(id){const r=rows.find(x=>x.player_id===id);if(!r)return;$('#detail-content').innerHTML=`<h2 id="detail-name" class="detail-name">${esc(r.player_name)}</h2><p class="detail-meta">${esc(r.position)} · ${r.age.toFixed(1)} years · ${esc(r.origin_club)}</p><div class="score-row"><div><small>INDIVIDUAL RF</small><strong>${fmt(r.individual_prediction)}</strong></div><div><small>RF + FORMATIONS</small><strong>${fmt(r.context_prediction)}</strong></div><div><small>PRIOR GA90</small><strong>${fmt(r.persistence)}</strong></div></div><p class="detail-lines">Scenario destination: <b>${esc(r.scenario_club)}</b><br>Historical transfer: ${esc(r.transfer_date)} → ${esc(r.destination_club)}<br>Last player input: ${esc(r.pre_last_date)}<br>Last club context: ${esc(r.context_last_date)}</p><table class="detail-table"><tr><td>Prior goals / 90</td><td>${fmt(r.pre_goals90)}</td></tr><tr><td>Prior assists / 90</td><td>${fmt(r.pre_assists90)}</td></tr><tr><td>Prior minutes / appearances</td><td>${r.pre_minutes} / ${r.pre_appearances}</td></tr><tr><td>4-3-3 / 4-2-3-1 / 4-4-2 share</td><td>${(r.share_433*100).toFixed(0)}% / ${(r.share_4231*100).toFixed(0)}% / ${(r.share_442*100).toFixed(0)}%</td></tr><tr><td>Formation data coverage</td><td>${(r.formation_coverage*100).toFixed(0)}%</td></tr></table><p class="detail-lines">${r.factual_context?`Observed GA90 at the recorded destination: <b>${fmt(r.observed_original_ga90)}</b>. This outcome is shown after inference and never supplied to either model.`:'Destination changed. No observed outcome exists for this scenario; this is an associative model estimate.'}</p><p class="hint">Club formations are a weak tactical proxy. GA90 does not measure defensive contribution, affordability or causal fit. Population RMSE is not an individual confidence interval.</p><button class="primary" id="detail-save" data-player="${r.player_id}">☆ Save or remove candidate</button>`;$('#detail-save').onclick=()=>saveRow(id);updateDetailSave(r);$('#detail').showModal()}
 function renderSaved(){$('#saved-content').innerHTML=saved.length?`<div class="saved-grid">${saved.map((r,i)=>`<article class="saved-card"><small class="eyebrow">${esc(r.position)} · ${r.season}</small><h3>${esc(r.player_name)}</h3><p>${esc(r.origin_club)} → ${esc(r.scenario_club)}<br>${esc(r.model)}<br>Age ${r.age.toFixed(1)} · ${r.pre_minutes} prior minutes</p><strong>${fmt(r.prediction)}</strong> <small>predicted GA90</small><p>Previous GA90 ${fmt(r.persistence)}<br>Context prediction ${fmt(r.context_prediction)}</p><button class="secondary" data-remove="${i}" aria-label="Remove ${esc(r.player_name)} from shortlist">Remove</button></article>`).join('')}</div>`:'<p class="empty">Your shortlist is empty. Save candidates with ☆ in Discover players.</p>';$('#saved-content').querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>removeSaved(Number(b.dataset.remove)))}
-document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{activeView=b.dataset.view;['scout','shortlist','evidence'].forEach(v=>$(`#${v}-view`).hidden=v!==activeView);document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('active',x===b));$('#breadcrumb').textContent={scout:'Discover players',shortlist:'My shortlist',evidence:'Model evidence'}[activeView];$('#page-title').textContent={scout:'Find your next signing.',shortlist:'Build a considered shortlist.',evidence:'See the evidence behind the score.'}[activeView];$('#page-desc').textContent={scout:'Explore real transfer candidates with transparent machine learning.',shortlist:'Compare saved candidates and keep the assumptions visible.',evidence:'Measured results, reproducible data and the limits of this prototype.'}[activeView];if(activeView==='shortlist')renderSaved()});
+document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{activeView=b.dataset.view;['scout','shortlist','evidence'].forEach(v=>$(`#${v}-view`).hidden=v!==activeView);document.querySelectorAll('[data-view]').forEach(x=>{x.classList.toggle('active',x===b);x.setAttribute('aria-pressed',String(x===b))});$('#breadcrumb').textContent={scout:'Discover players',shortlist:'My shortlist',evidence:'Model evidence'}[activeView];$('#page-title').textContent={scout:'Find your next signing.',shortlist:'Build a considered shortlist.',evidence:'See the evidence behind the score.'}[activeView];$('#page-desc').textContent={scout:'Explore real transfer candidates with transparent machine learning.',shortlist:'Compare saved candidates and keep the assumptions visible.',evidence:'Measured results, reproducible data and the limits of this prototype.'}[activeView];if(activeView==='shortlist')renderSaved()});
 $('#filters').onsubmit=e=>{e.preventDefault();load()};$('#filters').elements.season.onchange=updateClubs;$('#filters').onreset=()=>setTimeout(()=>{$('#search').value='';updateClubs();load()},0);$('#search').oninput=renderRows;$('#export').onclick=()=>{const p=new URLSearchParams(query);p.set('search',$('#search').value);const a=document.createElement('a');a.href='/api/export?'+p;a.download='transferlens-candidates.csv';a.click()};$('#clear-saved').onclick=clearShortlist;$('#close-detail').onclick=()=>$('#detail').close();$('#detail').onclick=e=>{if(e.target===$('#detail'))$('#detail').close()};
 (async()=>{try{const r=await fetch('/api/meta');if(!r.ok)throw Error('Could not load model metadata');meta=await r.json();updateClubs();persist();await load()}catch(e){$('#error').textContent=e.message;$('#error').hidden=false}})();
