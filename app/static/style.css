@@ -7,3 +7,6 @@ button:disabled{cursor:default;opacity:.55}
 .candidates{min-width:0}
 .table-wrap table{min-width:520px}
 .toast-undo{margin-left:16px;border:1px solid currentColor;border-radius:4px;padding:5px 9px;background:transparent;color:inherit;font-weight:600}
+
+/* Keep status messages and their Undo button within narrow viewports. */
+#toast{max-width:calc(100vw - 32px);right:16px;bottom:16px;overflow-wrap:anywhere;z-index:20}
