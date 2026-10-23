@@ -112,3 +112,16 @@ test('export is unavailable when a name search hides every candidate', async () 
     assert.equal(app.element('#result-count').textContent, '0');
     assert.equal(app.element('#export').disabled, true);
 });
+
+test('clearing a shortlist can be undone without losing scenario records', () => {
+    const records = [candidate(), candidate(2, 2024)];
+    const app = workspace(JSON.stringify(records));
+    app.context.clearShortlist();
+    assert.deepEqual(app.snapshot().saved, []);
+    assert.equal(app.element('#clear-saved').disabled, true);
+    const undo = app.element('#toast').children[0];
+    assert.equal(undo.textContent, 'Undo');
+    undo.onclick();
+    assert.deepEqual(app.snapshot().saved, records);
+    assert.equal(app.element('#clear-saved').disabled, false);
+});
