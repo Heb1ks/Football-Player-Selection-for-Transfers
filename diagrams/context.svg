@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="700" height="390" preserveAspectRatio="xMinYMin meet" viewBox="0 0 700 390" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="700" height="390"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-390)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="15" y="270" width="170" height="75" rx="7" ry="0" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,95%); fill-rule: evenodd;"/>
+			<text x="49.81" y="316.5" style="font-family: Helvetica; font-size: 14px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,633) scale(1,-1)">Scout or analyst</text>
+			<text x="54.454499999999996" y="294.5" style="font-family: Helvetica; font-size: 11px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,589) scale(1,-1)">filters and inspects</text>
+			<rect x="250" y="270" width="220" height="75" rx="7" ry="0" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,95%); fill-rule: evenodd;"/>
+			<text x="288.803" y="316.5" style="font-family: Helvetica; font-size: 14px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,633) scale(1,-1)">TransferLens local app</text>
+			<text x="296.728" y="294.5" style="font-family: Helvetica; font-size: 11px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,589) scale(1,-1)">historical decision support</text>
+			<rect x="525" y="270" width="160" height="75" rx="7" ry="0" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,95%); fill-rule: evenodd;"/>
+			<text x="571.547" y="316.5" style="font-family: Helvetica; font-size: 14px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,633) scale(1,-1)">Supervisor</text>
+			<text x="562.8205" y="294.5" style="font-family: Helvetica; font-size: 11px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,589) scale(1,-1)">reviews evidence</text>
+			<rect x="15" y="65" width="190" height="85" rx="7" ry="0" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,95%); fill-rule: evenodd;"/>
+			<text x="55.532999999999994" y="116.5" style="font-family: Helvetica; font-size: 14px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,233) scale(1,-1)">Dataset publisher</text>
+			<text x="39.688" y="94.5" style="font-family: Helvetica; font-size: 11px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,189) scale(1,-1)">four retained CSV snapshots</text>
+			<rect x="250" y="65" width="220" height="85" rx="7" ry="0" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,95%); fill-rule: evenodd;"/>
+			<text x="296.594" y="116.5" style="font-family: Helvetica; font-size: 14px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,233) scale(1,-1)">Offline RMT pipeline</text>
+			<text x="296.72249999999997" y="94.5" style="font-family: Helvetica; font-size: 11px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,189) scale(1,-1)">cohort and model artifacts</text>
+			<rect x="525" y="65" width="160" height="85" rx="7" ry="0" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,95%); fill-rule: evenodd;"/>
+			<text x="550.148" y="116.5" style="font-family: Helvetica; font-size: 14px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,233) scale(1,-1)">GitHub and PDFs</text>
+			<text x="547.833" y="94.5" style="font-family: Helvetica; font-size: 11px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,189) scale(1,-1)">code, issues and report</text>
+			<path d="M 185,308 L 250,308 Z" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="250 308, 242.7964 311.4797, 242.7964 304.5203" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(60%,67%,70%); fill-rule: evenodd;"/>
+			<text x="207.775" y="321" style="font-family: Helvetica; font-size: 10px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,642) scale(1,-1)">brief</text>
+			<path d="M 525,308 L 470,308 Z" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="470 308, 477.2036 304.5203, 477.2036 311.4797" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(60%,67%,70%); fill-rule: evenodd;"/>
+			<text x="481.66" y="321" style="font-family: Helvetica; font-size: 10px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,642) scale(1,-1)">inspect</text>
+			<path d="M 205,107 L 250,107 Z" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="250 107, 242.7964 110.4797, 242.7964 103.5203" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(60%,67%,70%); fill-rule: evenodd;"/>
+			<text x="214.16" y="120" style="font-family: Helvetica; font-size: 10px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,240) scale(1,-1)">inputs</text>
+			<path d="M 360,150 L 360,270 Z" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="360 270, 356.5203 262.7964, 363.4797 262.7964" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(60%,67%,70%); fill-rule: evenodd;"/>
+			<text x="376.6" y="210" style="font-family: Helvetica; font-size: 10px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,420) scale(1,-1)">fixed assets</text>
+			<path d="M 470,107 L 525,107 Z" style="stroke: rgb(60%,67%,70%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="525 107, 517.7964 110.4797, 517.7964 103.5203" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(60%,67%,70%); fill-rule: evenodd;"/>
+			<text x="477.49" y="120" style="font-family: Helvetica; font-size: 10px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,240) scale(1,-1)">evidence</text>
+			<text x="192.887" y="21" style="font-family: Helvetica; font-size: 11px;fill: rgb(14%,22%,27%); stroke:none;" transform="translate(0,42) scale(1,-1)">No live provider call or automatic transfer action during inference</text>
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,244 @@
+{
+  "project": "TransferLens",
+  "updated": "2026-10-15",
+  "notice": "Local versioned tracker. Owners require team confirmation; artifact status does not prove personal contribution.",
+  "tasks": [
+    {
+      "id": "DIP-01",
+      "title": "Audit and preserve RMT research",
+      "status": "Done",
+      "priority": "High",
+      "owner": "Team — personal owner unconfirmed",
+      "due": "2026-10-15",
+      "verified": "2026-10-15",
+      "outcome": "A traceable research snapshot for the diploma",
+      "acceptance": [
+        "19 source files copied without changing RMT",
+        "SHA-256 reuse manifest retained",
+        "Existing negative result preserved"
+      ],
+      "evidence": [
+        "research/rmt/reuse_manifest.json",
+        "research/rmt/outputs/results.json"
+      ],
+      "dependencies": [],
+      "issue_url": "https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/issues/1"
+    },
+    {
+      "id": "DIP-02",
+      "title": "Implement historical candidate inference",
+      "status": "Done",
+      "priority": "High",
+      "owner": "Team — personal owner unconfirmed",
+      "due": "2026-10-15",
+      "verified": "2026-10-15",
+      "outcome": "Reproducible RF inference on held-out historical candidates",
+      "acceptance": [
+        "Train on 405 training rows only",
+        "Allowlist input features",
+        "Predict both individual and formation models",
+        "Reject invalid scenario parameters"
+      ],
+      "evidence": [
+        "app/core.py",
+        "tools/build_demo.py",
+        "models/manifest.json"
+      ],
+      "dependencies": [
+        "DIP-01"
+      ],
+      "issue_url": "https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/issues/2"
+    },
+    {
+      "id": "DIP-03",
+      "title": "Deliver recruitment interface and CSV export",
+      "status": "Done",
+      "priority": "High",
+      "owner": "Team — personal owner unconfirmed",
+      "due": "2026-10-15",
+      "verified": "2026-10-15",
+      "outcome": "Runnable filters, profiles, shortlist and comparison",
+      "acceptance": [
+        "Filter by season, age, position and league",
+        "Display input dates and assumptions",
+        "Save multiple candidates for comparison",
+        "Export matching candidates as CSV"
+      ],
+      "evidence": [
+        "app/static/index.html",
+        "app/static/app.js",
+        "app/server.py"
+      ],
+      "dependencies": [
+        "DIP-02"
+      ],
+      "issue_url": "https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/issues/3"
+    },
+    {
+      "id": "DIP-04",
+      "title": "Verify inference and integration",
+      "status": "Review",
+      "priority": "High",
+      "owner": "Team — personal owner unconfirmed",
+      "due": "2026-10-16",
+      "outcome": "Test outputs and browser review linked",
+      "acceptance": [
+        "Automated core and HTTP checks pass",
+        "Target manipulation does not change predictions",
+        "Browser filtering, profile and shortlist checked"
+      ],
+      "evidence": [
+        "tests/test_app.py"
+      ],
+      "dependencies": [
+        "DIP-03"
+      ],
+      "issue_url": "https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/issues/4"
+    },
+    {
+      "id": "DIP-05",
+      "title": "Prepare report and architecture diagrams",
+      "status": "Review",
+      "priority": "High",
+      "owner": "Team — personal owner unconfirmed",
+      "due": "2026-10-17",
+      "outcome": "All 11 report sections available for supervisor review",
+      "acceptance": [
+        "12 meaningful sources including 8 scientific publications",
+        "Compare 4 systems using 8 criteria",
+        "Compare 3 technology decisions",
+        "Editable context, use-case and component diagrams",
+        "Missing evidence explicitly identified"
+      ],
+      "evidence": [
+        "docs/report.md",
+        "diagrams/"
+      ],
+      "dependencies": [
+        "DIP-01"
+      ],
+      "issue_url": "https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/issues/5"
+    },
+    {
+      "id": "DIP-06",
+      "title": "Run 3–5 real user discussions",
+      "status": "Backlog",
+      "priority": "High",
+      "owner": "Unassigned — team to confirm",
+      "due": "2026-10-20",
+      "outcome": "Recorded requirements findings from intended users",
+      "acceptance": [
+        "Interview 3–5 relevant adult user representatives with consent",
+        "Separate quotes, observations and assumptions",
+        "Link findings to requirement changes"
+      ],
+      "evidence": [],
+      "dependencies": [
+        "DIP-03"
+      ],
+      "issue_url": "https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/issues/6"
+    },
+    {
+      "id": "DIP-07",
+      "title": "Confirm owners and publish shared task board",
+      "status": "Backlog",
+      "priority": "High",
+      "owner": "Unassigned — team to confirm",
+      "due": "2026-10-18",
+      "outcome": "Committee-accessible tracker with responsible students",
+      "acceptance": [
+        "Assign every task to a real member",
+        "Import tasks to YouTrack or equivalent shared system",
+        "Verify supervisor and committee access",
+        "Link actual commits and PRs"
+      ],
+      "evidence": [],
+      "dependencies": [],
+      "issue_url": "https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/issues/7"
+    },
+    {
+      "id": "DIP-08",
+      "title": "Obtain supervisor feedback",
+      "status": "Backlog",
+      "priority": "High",
+      "owner": "Unassigned — team to confirm",
+      "due": "2026-10-21",
+      "outcome": "Substantive review and response log",
+      "acceptance": [
+        "Confirm supervisor name",
+        "Record real comments on requirements, scope and experiment",
+        "Apply or justify each response"
+      ],
+      "evidence": [],
+      "dependencies": [
+        "DIP-05"
+      ],
+      "issue_url": "https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/issues/8"
+    },
+    {
+      "id": "DIP-09",
+      "title": "Record individual contributions and peer review",
+      "status": "Backlog",
+      "priority": "High",
+      "owner": "Both members — confirm allocation",
+      "due": "2026-10-22",
+      "outcome": "Identifiable changes with review evidence",
+      "acceptance": [
+        "Each member uses own account",
+        "Real contribution is linked to issue and PR",
+        "Another member reviews before merge",
+        "Do not fabricate earlier history"
+      ],
+      "evidence": [],
+      "dependencies": [
+        "DIP-07"
+      ],
+      "issue_url": "https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/issues/9"
+    },
+    {
+      "id": "DIP-10",
+      "title": "Freeze and submit pre-defense materials",
+      "status": "Backlog",
+      "priority": "High",
+      "owner": "Unassigned representative",
+      "due": "2026-10-24 17:00",
+      "outcome": "Checked PDF report, board evidence and accessible links",
+      "acceptance": [
+        "Resolve supervisor and team metadata",
+        "Check actual final report and board PDF",
+        "Create prob-period-1 tag matching the uploaded submission materials",
+        "Test links from a committee account",
+        "One representative submits before 18:00"
+      ],
+      "evidence": [],
+      "dependencies": [
+        "DIP-04",
+        "DIP-05",
+        "DIP-06",
+        "DIP-08",
+        "DIP-09"
+      ],
+      "issue_url": "https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/issues/10"
+    },
+    {
+      "id": "DIP-11",
+      "title": "Collect dated financial and richer event features",
+      "status": "Backlog",
+      "priority": "Medium",
+      "owner": "Unassigned — later diploma iteration",
+      "due": "2026-11-05",
+      "outcome": "Plan a wider selection model beyond attacking output",
+      "acceptance": [
+        "Check data availability and permission",
+        "Timestamp costs at prediction time",
+        "Define role-specific targets",
+        "Evaluate pressing and possession against baseline"
+      ],
+      "evidence": [],
+      "dependencies": [
+        "DIP-06"
+      ],
+      "issue_url": "https://github.com/Heb1ks/Football-Player-Selection-for-Transfers/issues/11"
+    }
+  ]
+}

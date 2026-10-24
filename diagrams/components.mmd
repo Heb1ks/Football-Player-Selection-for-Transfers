@@ -1,0 +1,7 @@
+flowchart LR
+  UI[Browser HTML CSS JS] -->|GET JSON and CSV| HTTP[app/server.py]
+  HTTP -->|Validated query| Engine[app/core.py]
+  Engine -->|Read historical features| Data[CSV cohort and JSON results]
+  Engine -->|Predict with feature allowlists| RF[Trusted individual and formation RF pipelines]
+  UI -->|Save and load scenarios| Local[Browser localStorage]
+  HTTP -->|Read task definitions| Tasks[docs/tasks.json]

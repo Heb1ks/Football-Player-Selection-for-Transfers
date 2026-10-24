@@ -1,0 +1,9 @@
+{
+  "valid_held_out_inference": "PASS",
+  "saved_prediction_matches_executed_benchmark": "PASS",
+  "unknown_player_id_rejected_exit_2": "PASS",
+  "invalid_request_does_not_overwrite_output": "PASS",
+  "all_8_survey_items_mapped": "PASS",
+  "response_template_has_zero_human_rows": "PASS",
+  "survey_human_pilot": "NOT COLLECTED"
+}

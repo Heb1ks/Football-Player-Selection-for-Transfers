@@ -1,0 +1,29 @@
+test_changed_club_uses_prior_context (test_app.EngineTests.test_changed_club_uses_prior_context) ... ok
+test_chronology_and_unique_players (test_app.EngineTests.test_chronology_and_unique_players) ... ok
+test_empty_and_literal_search (test_app.EngineTests.test_empty_and_literal_search) ... ok
+test_filter_and_order (test_app.EngineTests.test_filter_and_order) ... ok
+test_invalid_parameters (test_app.EngineTests.test_invalid_parameters) ... ok
+test_saved_predictions_match_original_benchmark (test_app.EngineTests.test_saved_predictions_match_original_benchmark) ... ok
+test_target_is_not_a_predictor (test_app.EngineTests.test_target_is_not_a_predictor) ... ok
+test_invalid_request (test_app.HttpTests.test_invalid_request) ... 127.0.0.1 - - [15/Oct/2026 20:09:44] "GET /api/rank?max_age=nan HTTP/1.1" 400 -
+ok
+test_pages_and_metadata (test_app.HttpTests.test_pages_and_metadata) ... 127.0.0.1 - - [15/Oct/2026 20:09:44] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 20:09:44] "GET /board HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 20:09:44] "GET /app.js HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 20:09:44] "GET /board.js HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 20:09:44] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 20:09:44] "GET /api/meta HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 20:09:44] "GET /api/tasks HTTP/1.1" 200 -
+ok
+test_private_files_unreachable (test_app.HttpTests.test_private_files_unreachable) ... 127.0.0.1 - - [15/Oct/2026 20:09:44] "GET /../docs/team.json HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 20:09:44] "GET /models/individual_rf.joblib HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 20:09:44] "GET /.git/config HTTP/1.1" 404 -
+ok
+test_rank_and_export (test_app.HttpTests.test_rank_and_export) ... 127.0.0.1 - - [15/Oct/2026 20:09:44] "GET /api/rank?season=2024&position=Attack HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 20:09:44] "GET /api/export?season=2024&position=Attack HTTP/1.1" 200 -
+ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 11.744s
+
+OK

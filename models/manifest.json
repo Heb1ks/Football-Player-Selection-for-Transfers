@@ -1,0 +1,31 @@
+{
+  "created_on": "2026-10-15",
+  "origin": "RMT Assignment 3 snapshot 2026-10-12",
+  "training_rows": 405,
+  "demo_rows": 242,
+  "models_sha256": {
+    "formation_rf.joblib": "c9feafddc13e77a099962bda271ceec8c6bb651e5bb1ea463ddcc3cee0524b31",
+    "individual_rf.joblib": "c03cf02df556ca40d52d6a18e7f2e5e5c199f485ed36d1588dbef3f1789ea72e"
+  },
+  "base_features": [
+    "pre_goals90",
+    "pre_assists90",
+    "pre_minutes",
+    "pre_appearances",
+    "pre_yellows90",
+    "pre_reds90",
+    "age",
+    "position_attack",
+    "position_midfield"
+  ],
+  "context_features": [
+    "share_433",
+    "share_4231",
+    "share_442",
+    "share_three_back",
+    "formation_entropy",
+    "formation_coverage"
+  ],
+  "inference": "Historical replay; scenario changes are associative predictions, not causal transfer effects.",
+  "training_source": "Original raw RMT inputs, full-precision in-memory features; exact benchmark reproduction verified."
+}

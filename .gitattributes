@@ -1,0 +1,8 @@
+* text=auto eol=lf
+*.joblib binary
+*.gz binary
+*.pdf binary
+*.png binary
+*.jpg binary
+# Retained RMT files must keep their original bytes for the reuse manifest.
+research/rmt/** -text

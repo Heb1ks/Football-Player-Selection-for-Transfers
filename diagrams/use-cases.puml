@@ -1,0 +1,21 @@
+@startuml
+left to right direction
+actor "Scout or analyst" as Scout
+actor Reviewer
+actor Student
+rectangle "TransferLens" {
+  usecase "Find and rank candidates" as U1
+  usecase "Inspect player profile" as U2
+  usecase "Compare saved shortlist" as U3
+  usecase "Explore club context" as U4
+  usecase "Export candidate CSV" as U5
+  usecase "Review model evidence" as U6
+}
+Scout -- U1
+Scout -- U2
+Scout -- U3
+Scout -- U4
+Scout -- U5
+Reviewer -- U6
+Student -- U6
+@enduml
